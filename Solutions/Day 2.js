@@ -4,8 +4,6 @@ const intcodeProgram = [1,0,0,3,1,1,2,3,1,3,4,3,1,5,0,3,2,9,1,19,1,19,5,23,1,23,
 
 
 const runProgram = (array) => {
-    array[1] = 12;
-    array[2] = 2;
     for (let i = 0; i < array.length; i++) {
         switch(array[i]) {
             case 1:
@@ -20,10 +18,32 @@ const runProgram = (array) => {
                 i = array.length;
                 break;
             default:
-                alert('1202 program alarm')
+                console.log('1202 program alarm')
                 break;
+        }
+    }
+    return array[0];
+}
+
+intcodeProgram[1] = 12;
+intcodeProgram[2] = 2;
+runProgram(intcodeProgram);
+
+// Part 2
+
+const findVerbNoun = (array) => {
+    for (let noun = 0; noun <= 99; noun++) {
+        for (let verb = 0; verb <= 99; verb++) {
+            let resetArray = [...array];
+            console.log('before', resetArray)
+            resetArray[1] = noun;
+            resetArray[2] = verb;
+            console.log('after', resetArray)
+            if (runProgram(resetArray) === 19690720) {
+                return 100 * noun + verb;
+            }
         }
     }
 }
 
-runProgram(intcodeProgram);
+console.log(findVerbNoun(intcodeProgram));
