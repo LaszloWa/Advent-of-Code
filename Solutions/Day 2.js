@@ -9,11 +9,11 @@ const runProgram = (array) => {
     for (let i = 0; i < array.length; i++) {
         switch(array[i]) {
             case 1:
-                array[array[i + 3]] = array[i + 1] + array[i + 2];
+                array[array[i + 3]] = array[array[i + 1]] + array[array[i + 2]];
                 i = i + 3;
                 break;
             case 2:
-                array[array[i + 3]] = array[i + 1] * array[i + 2];
+                    array[array[i + 3]] = array[array[i + 1]] * array[array[i + 2]];
                 i = i + 3;
                 break;
             case 99:
