@@ -35,10 +35,8 @@ const findVerbNoun = (array) => {
     for (let noun = 0; noun <= 99; noun++) {
         for (let verb = 0; verb <= 99; verb++) {
             let resetArray = [...array];
-            console.log('before', resetArray)
             resetArray[1] = noun;
             resetArray[2] = verb;
-            console.log('after', resetArray)
             if (runProgram(resetArray) === 19690720) {
                 return 100 * noun + verb;
             }
